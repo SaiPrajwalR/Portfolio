@@ -1,0 +1,86 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+  background-image:
+    radial-gradient(1200px 700px at 50% -20%, rgba(37, 99, 235, 0.10), transparent 60%),
+    radial-gradient(900px 600px at 10% 10%, rgba(245, 158, 11, 0.10), transparent 55%);
+  background-attachment: fixed;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.18);
+}
+
+.bg-orb {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 9999px;
+  filter: blur(48px);
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  will-change: transform;
+}
+
+.bg-orb--1 {
+  left: -140px;
+  top: 120px;
+  background: radial-gradient(circle at 30% 30%, rgba(37, 99, 235, 0.22), transparent 60%);
+  animation: orbFloat1 14s ease-in-out infinite;
+}
+
+.bg-orb--2 {
+  right: -180px;
+  top: 520px;
+  background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.18), transparent 60%);
+  animation: orbFloat2 18s ease-in-out infinite;
+}
+
+.bg-orb--3 {
+  left: 22%;
+  bottom: -240px;
+  background: radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.16), transparent 60%);
+  animation: orbFloat3 20s ease-in-out infinite;
+}
+
+.bg-grid-mask {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at top, rgba(0, 0, 0, 0.9), transparent 70%);
+  opacity: 0.18;
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(40px, -18px, 0) scale(1.05); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-34px, 20px, 0) scale(1.06); }
+}
+
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(22px, -26px, 0) scale(1.04); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-orb--1,
+  .bg-orb--2,
+  .bg-orb--3 {
+    animation: none;
+  }
+}
