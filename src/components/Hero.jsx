@@ -65,7 +65,7 @@ export default function Hero() {
           </MotionA>
 
           <MotionA
-            href="/resume.pdf"
+            href="/Resume.pdf"
             target="_blank"
             rel="noreferrer"
             whileHover={{ y: -2 }}
