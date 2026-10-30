@@ -1,27 +1,46 @@
 // src/components/About.jsx
 import { motion } from 'framer-motion';
-import { Code2, Palette, Database, Wrench } from 'lucide-react';
+import { BarChart3, Code2, Database, LayoutDashboard, Wrench, Users } from 'lucide-react';
 
 const skillGroups = [
   {
-    icon: <Database size={18} />,
-    label: 'Data & Analysis',
-    skills: ['Python (pandas, NumPy, Matplotlib)', 'MySQL', 'Power BI', 'Excel'],
+    icon: <BarChart3 size={18} />,
+    label: 'Data Analysis',
+    skills: [
+      'Data Cleaning',
+      'Exploratory Data Analysis (EDA)',
+      'Data Validation',
+      'KPI Reporting',
+      'Trend Analysis',
+    ],
   },
   {
     icon: <Code2 size={18} />,
-    label: 'Development',
-    skills: ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Next.js', 'CSS'],
+    label: 'Programming & Libraries',
+    skills: ['Python (pandas, NumPy, Matplotlib)'],
   },
   {
-    icon: <Palette size={18} />,
-    label: 'Design',
-    skills: ['Figma', 'UI/UX Design', 'Wireframing', 'Prototyping'],
+    icon: <Database size={18} />,
+    label: 'Databases',
+    skills: ['SQL', 'MySQL'],
+  },
+  {
+    icon: <LayoutDashboard size={18} />,
+    label: 'Visualization & BI',
+    skills: [
+      'Power BI (DAX Measures, Interactive Dashboards)',
+      'Microsoft Excel (Dashboards, KPIs)',
+    ],
   },
   {
     icon: <Wrench size={18} />,
-    label: 'Tools & Soft Skills',
-    skills: ['Git', 'GitHub', 'Microsoft Office', 'Problem-solving', 'Communication', 'Teamwork'],
+    label: 'Tools',
+    skills: ['Git', 'GitHub', 'Figma', 'Microsoft Office', 'AI-assisted development'],
+  },
+  {
+    icon: <Users size={18} />,
+    label: 'Soft Skills',
+    skills: ['Problem-solving', 'Communication', 'Teamwork'],
   },
 ];
 
@@ -79,13 +98,13 @@ export default function About() {
 
       {/* Skills Grid */}
       <motion.div variants={fadeUp} className="mb-10">
-        <h3 className="mb-5 text-lg font-bold text-white">Technical Skills</h3>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <h3 className="mb-5 text-lg font-bold text-white">Skills & Proficiencies</h3>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group, i) => (
             <motion.div
               key={i}
               variants={fadeUp}
-              className="glass-card p-5"
+              className="glass-card flex h-full flex-col p-5"
               whileHover={{ y: -4 }}
             >
               <div className="mb-3 flex items-center gap-2 text-indigo-400">
