@@ -22,7 +22,8 @@ const projects = [
     description:
       'Analyzed 1,470 employee records using MySQL to identify attrition trends, department-wise workforce patterns, and compensation factors. Developed interactive Excel and Power BI dashboards with KPIs, DAX measures, and visualizations to generate insights supporting employee retention strategies.',
     tech: ['MySQL', 'Excel', 'Power BI', 'DAX'],
-    github: null,
+    github: 'https://github.com/SaiPrajwalR/HR-Attrition-Analysis',
+    githubLabel: 'Demo & Code',
     live: null,
     icon: <Database size={20} />,
     color: 'from-emerald-500/15 to-teal-500/10',
@@ -139,9 +140,9 @@ export default function Projects() {
                   href={project.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 text-sm font-medium text-slate-500 transition-colors hover:text-white"
+                  className="flex items-center gap-2 text-sm font-medium text-slate-400 transition-colors hover:text-white"
                 >
-                  <Github size={15} /> Code
+                  <Github size={15} /> {project.githubLabel || 'Code'}
                 </a>
               )}
               {project.live && (
@@ -149,9 +150,9 @@ export default function Projects() {
                   href={project.live}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-2 text-sm font-medium text-slate-500 transition-colors hover:text-white"
+                  className="flex items-center gap-2 text-sm font-medium text-slate-400 transition-colors hover:text-white"
                 >
-                  <ExternalLink size={15} /> View
+                  <ExternalLink size={15} /> {project.liveLabel || 'View'}
                 </a>
               )}
               {!project.github && !project.live && (
