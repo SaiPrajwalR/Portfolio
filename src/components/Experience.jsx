@@ -1,76 +1,109 @@
 // src/components/Experience.jsx
 import { motion } from 'framer-motion';
+import { Briefcase, Calendar, MapPin } from 'lucide-react';
+
+const experiences = [
+  {
+    role: 'Software Development Intern',
+    company: 'Hindustan Aeronautics Limited (HAL)',
+    location: 'Bangalore',
+    duration: 'Jan 2026 – Mar 2026',
+    type: 'On-site',
+    color: 'from-blue-500/20 to-indigo-500/10',
+    accent: 'text-blue-400',
+    details: [
+      'Managed and verified structured data records with high accuracy while supporting application workflows and documentation processes.',
+      'Coordinated cross-functional collaboration with teams to test system functionality, ensuring process accuracy, attention to detail, and efficient issue resolution through proactive troubleshooting.',
+    ],
+  },
+  {
+    role: 'UI/UX Design Intern',
+    company: 'Infotact Solutions',
+    location: 'Remote',
+    duration: 'Aug 2025 – Nov 2025',
+    type: 'Remote',
+    color: 'from-violet-500/20 to-purple-500/10',
+    accent: 'text-violet-400',
+    details: [
+      'Handled project documentation, organized user records, and ensured accurate implementation of project requirements.',
+      'Conducted verification and usability checks, maintained detailed reports, and coordinated with teams in a professional remote environment.',
+    ],
+  },
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 120, damping: 20 } },
+};
 
 export default function Experience() {
-  const { section: MotionSection, div: MotionDiv } = motion;
-
-  const experiences = [
-    {
-      role: "Software Development Intern",
-      company: "Hindustan Aeronautics Limited (HAL)",
-      duration: "3 Months",
-      details: [
-        "Redesigned and optimized an existing desktop application lacking structured UI/UX and modular architecture.",
-        "Enhanced interface using Python (Tkinter & ttk) with modern styling, fonts, and color schemes.",
-        "Refactored codebase to improve readability, maintainability, and performance efficiency."
-      ]
-    },
-    {
-      role: "UI/UX Design Intern",
-      company: "Infotact Solutions",
-      duration: "3 Months (Remote)",
-      details: [
-        "Designed end-to-end UI/UX for an AR-based virtual try-on platform (TryItAR).",
-        "Developed a Sustainability Dashboard (EcoTrace) with data visualization and user engagement features.",
-        "Created user personas, low/high-fidelity wireframes, and interactive prototypes using Figma."
-      ]
-    }
-  ];
-
-  const fadeUp = {
-    hidden: { opacity: 0, y: 16 },
-    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 140, damping: 18 } },
-  };
-
   return (
-    <MotionSection
+    <motion.section
       id="experience"
-      className="scroll-mt-24 py-6 md:py-8"
+      className="scroll-mt-24 py-10 md:py-16"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
-      variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
+      viewport={{ once: true, amount: 0.15 }}
+      variants={{ hidden: {}, show: { transition: { staggerChildren: 0.09 } } }}
     >
-      <MotionDiv variants={fadeUp} className="mb-5">
-        <p className="text-sm font-semibold tracking-[0.14em] text-blue-600">Experience</p>
-        <h2 className="mt-3 text-4xl font-semibold leading-tight tracking-tight text-slate-900 md:text-5xl">
-          Roles where I shipped real outcomes.
+      {/* Header */}
+      <motion.div variants={fadeUp} className="mb-10">
+        <p className="section-label mb-3">Experience</p>
+        <h2 className="text-4xl font-extrabold tracking-tight text-white md:text-5xl">
+          Where I've{' '}
+          <span className="gradient-text">made an impact</span>
         </h2>
-      </MotionDiv>
+      </motion.div>
 
-      <div className="space-y-6">
+      {/* Timeline */}
+      <div className="relative space-y-6 pl-8">
+        <div className="timeline-line" />
+
         {experiences.map((exp, i) => (
-          <MotionDiv 
+          <motion.div
             key={i}
             variants={fadeUp}
-            whileHover={{ y: -4 }}
-            className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition-shadow hover:shadow-lg md:p-8"
+            className="relative"
           >
-            <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-              <div>
-                <h3 className="text-2xl font-semibold tracking-tight text-slate-900">{exp.role}</h3>
-                <p className="text-blue-600 font-semibold">{exp.company}</p>
-              </div>
-              <p className="text-slate-500 text-sm mt-2 md:mt-0 font-medium">{exp.duration}</p>
+            {/* Dot */}
+            <div className="absolute -left-8 flex items-center justify-center">
+              <div className="timeline-dot" />
             </div>
-            <ul className="ml-4 list-outside list-disc space-y-2 text-base leading-relaxed text-slate-600">
-              {exp.details.map((detail, j) => (
-                <li key={j}>{detail}</li>
-              ))}
-            </ul>
-          </MotionDiv>
+
+            {/* Card */}
+            <div className={`glass-card overflow-hidden bg-gradient-to-br ${exp.color} p-6 md:p-8`}>
+              {/* Header row */}
+              <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+                <div>
+                  <div className="mb-1 flex items-center gap-2">
+                    <Briefcase size={16} className={exp.accent} />
+                    <h3 className="text-xl font-bold text-white">{exp.role}</h3>
+                  </div>
+                  <p className={`font-semibold ${exp.accent}`}>{exp.company}</p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-400">
+                    <Calendar size={11} /> {exp.duration}
+                  </span>
+                  <span className="flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-400">
+                    <MapPin size={11} /> {exp.location} · {exp.type}
+                  </span>
+                </div>
+              </div>
+
+              {/* Bullet points */}
+              <ul className="space-y-3">
+                {exp.details.map((detail, j) => (
+                  <li key={j} className="flex items-start gap-3 text-sm leading-relaxed text-slate-400">
+                    <span className={`mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full ${exp.accent.replace('text-', 'bg-')}`} />
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
         ))}
       </div>
-    </MotionSection>
+    </motion.section>
   );
 }
