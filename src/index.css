@@ -30,8 +30,10 @@ body {
 /* ─── CANVAS BACKGROUND ─── */
 #bg-canvas {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 0;
   pointer-events: none;
 }
@@ -53,41 +55,74 @@ body {
 }
 
 .orb-1 {
-  width: 700px; height: 700px;
-  left: -200px; top: -150px;
+  width: 700px;
+  height: 700px;
+  left: -200px;
+  top: -150px;
   background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, transparent 70%);
   animation: orbDrift1 22s ease-in-out infinite;
 }
 
 .orb-2 {
-  width: 600px; height: 600px;
-  right: -180px; top: 40%;
+  width: 600px;
+  height: 600px;
+  right: -180px;
+  top: 40%;
   background: radial-gradient(circle, rgba(139, 92, 246, 0.14) 0%, transparent 70%);
   animation: orbDrift2 28s ease-in-out infinite;
 }
 
 .orb-3 {
-  width: 500px; height: 500px;
-  left: 30%; bottom: -100px;
+  width: 500px;
+  height: 500px;
+  left: 30%;
+  bottom: -100px;
   background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
   animation: orbDrift3 18s ease-in-out infinite;
 }
 
 @keyframes orbDrift1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33%       { transform: translate(80px, 60px) scale(1.08); }
-  66%       { transform: translate(-40px, 100px) scale(0.96); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(80px, 60px) scale(1.08);
+  }
+
+  66% {
+    transform: translate(-40px, 100px) scale(0.96);
+  }
 }
 
 @keyframes orbDrift2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  40%       { transform: translate(-60px, -80px) scale(1.1); }
-  70%       { transform: translate(30px, 40px) scale(0.94); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  40% {
+    transform: translate(-60px, -80px) scale(1.1);
+  }
+
+  70% {
+    transform: translate(30px, 40px) scale(0.94);
+  }
 }
 
 @keyframes orbDrift3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%       { transform: translate(-50px, -60px) scale(1.06); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-50px, -60px) scale(1.06);
+  }
 }
 
 /* ─── GRID OVERLAY ─── */
@@ -97,8 +132,8 @@ body {
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
 }
@@ -126,8 +161,13 @@ body {
 }
 
 @keyframes tickerScroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* ─── GLASS CARD ─── */
@@ -142,7 +182,7 @@ body {
 
 .glass-card:hover {
   border-color: rgba(99, 102, 241, 0.35);
-  box-shadow: 0 0 40px rgba(99, 102, 241, 0.1), 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 0 40px rgba(99, 102, 241, 0.1), 0 20px 40px rgba(0, 0, 0, 0.4);
   transform: translateY(-4px);
 }
 
@@ -168,15 +208,24 @@ body {
   transition: opacity 0.3s;
 }
 
-.btn-glow:hover::before { opacity: 1; }
-.btn-glow:hover { box-shadow: 0 0 50px rgba(99, 102, 241, 0.45); transform: translateY(-2px); }
+.btn-glow:hover::before {
+  opacity: 1;
+}
 
-.btn-glow span { position: relative; z-index: 1; }
+.btn-glow:hover {
+  box-shadow: 0 0 50px rgba(99, 102, 241, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-glow span {
+  position: relative;
+  z-index: 1;
+}
 
 /* ─── OUTLINE BUTTON ─── */
 .btn-outline {
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
   color: #cbd5e1;
   font-weight: 600;
   border-radius: 14px;
@@ -186,8 +235,8 @@ body {
 }
 
 .btn-outline:hover {
-  border-color: rgba(99,102,241,0.5);
-  background: rgba(99,102,241,0.08);
+  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(99, 102, 241, 0.08);
   color: #fff;
   transform: translateY(-2px);
 }
@@ -197,18 +246,19 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px; height: 44px;
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
   color: #94a3b8;
   transition: all 0.3s;
 }
 
 .btn-icon:hover {
-  border-color: rgba(99,102,241,0.5);
+  border-color: rgba(99, 102, 241, 0.5);
   color: #a5b4fc;
-  background: rgba(99,102,241,0.1);
+  background: rgba(99, 102, 241, 0.1);
   transform: translateY(-2px);
 }
 
@@ -234,8 +284,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(99,102,241,0.1);
-  border: 1px solid rgba(99,102,241,0.2);
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
   color: #a5b4fc;
   font-size: 0.8rem;
   font-weight: 500;
@@ -245,8 +295,8 @@ body {
 }
 
 .skill-pill:hover {
-  background: rgba(99,102,241,0.2);
-  border-color: rgba(99,102,241,0.4);
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.4);
   transform: translateY(-2px);
 }
 
@@ -256,8 +306,8 @@ body {
   font-weight: 600;
   padding: 3px 10px;
   border-radius: 6px;
-  background: rgba(99,102,241,0.12);
-  border: 1px solid rgba(99,102,241,0.18);
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.18);
   color: #a5b4fc;
 }
 
@@ -265,16 +315,18 @@ body {
 .timeline-line {
   position: absolute;
   left: 20px;
-  top: 0; bottom: 0;
+  top: 0;
+  bottom: 0;
   width: 1px;
-  background: linear-gradient(to bottom, transparent, rgba(99,102,241,0.4), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(99, 102, 241, 0.4), transparent);
 }
 
 .timeline-dot {
-  width: 10px; height: 10px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: #6366f1;
-  box-shadow: 0 0 12px rgba(99,102,241,0.6);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
   flex-shrink: 0;
   margin-top: 6px;
 }
@@ -282,10 +334,12 @@ body {
 /* ─── NAV ─── */
 .nav-bar {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   background: rgba(5, 10, 20, 0.7);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
@@ -302,7 +356,9 @@ body {
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -4px; left: 0; right: 0;
+  bottom: -4px;
+  left: 0;
+  right: 0;
   height: 2px;
   border-radius: 2px;
   background: #6366f1;
@@ -310,13 +366,18 @@ body {
   transition: transform 0.2s;
 }
 
-.nav-link:hover { color: #c7d2fe; }
-.nav-link:hover::after { transform: scaleX(1); }
+.nav-link:hover {
+  color: #c7d2fe;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
 
 /* ─── CERTIFICATION BADGE ─── */
 .cert-badge {
-  background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(139,92,246,0.08));
-  border: 1px solid rgba(99,102,241,0.25);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(139, 92, 246, 0.08));
+  border: 1px solid rgba(99, 102, 241, 0.25);
   border-radius: 16px;
   padding: 20px 24px;
   display: flex;
@@ -326,15 +387,15 @@ body {
 }
 
 .cert-badge:hover {
-  border-color: rgba(99,102,241,0.5);
-  box-shadow: 0 0 30px rgba(99,102,241,0.1);
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.1);
   transform: translateY(-2px);
 }
 
 /* ─── STAT BOX ─── */
 .stat-box {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 24px;
   text-align: center;
@@ -342,12 +403,16 @@ body {
 }
 
 .stat-box:hover {
-  border-color: rgba(99,102,241,0.3);
-  background: rgba(99,102,241,0.06);
+  border-color: rgba(99, 102, 241, 0.3);
+  background: rgba(99, 102, 241, 0.06);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .orb-1, .orb-2, .orb-3, .ticker-track {
+
+  .orb-1,
+  .orb-2,
+  .orb-3,
+  .ticker-track {
     animation: none;
   }
 }
